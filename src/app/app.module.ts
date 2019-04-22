@@ -9,13 +9,22 @@ import { UserService } from "./service/user.service";
 import { UserListComponent } from "./feature/user/user-list/user-list.component";
 import { VendorListComponent } from "./feature/vendor/vendor-list/vendor-list.component";
 import { VendorService } from "src/app/service/vendor.service";
-import { MenuComponent } from './core/menu/menu.component';
-import { UserCreateComponent } from './feature/user/user-create/user-create.component';
+import { MenuComponent } from "./core/menu/menu.component";
+import { UserCreateComponent } from "./feature/user/user-create/user-create.component";
+import { ProductListComponent } from "./feature/product/product-list/product-list.component";
+import { ProductService } from "src/app/service/product.service";
 
 @NgModule({
-  declarations: [AppComponent, UserListComponent, VendorListComponent, MenuComponent, UserCreateComponent],
+  declarations: [
+    AppComponent,
+    UserListComponent,
+    VendorListComponent,
+    MenuComponent,
+    UserCreateComponent,
+    ProductListComponent
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [UserService, VendorService],
+  providers: [UserService, VendorService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
