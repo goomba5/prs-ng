@@ -10,6 +10,7 @@ import { ProductService } from "src/app/service/product.service";
   styleUrls: ["./product-list.component.css"]
 })
 export class ProductListComponent implements OnInit {
+  title: string = "Product";
   products: Product[];
   jr: JsonResponse;
 

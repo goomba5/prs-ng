@@ -10,6 +10,7 @@ import { User } from "../../../model/user.class";
   styleUrls: ["./user-list.component.css"]
 })
 export class UserListComponent implements OnInit {
+  title: string = "User List";
   users: User[];
   jr: JsonResponse;
 

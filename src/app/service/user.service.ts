@@ -16,4 +16,22 @@ export class UserService {
   list(): Observable<JsonResponse> {
     return this.http.get(url) as Observable<JsonResponse>;
   }
+
+  create(user: User): Observable<any> {
+    console.log("usersvc.create...");
+    return this.http.post(url, user) as Observable<any>;
+  }
+
+  edit(user: User): Observable<any> {
+    return this.http.put(url, user) as Observable<any>;
+  }
+
+  get(id: string): Observable<JsonResponse> {
+    console.log("usersvc.get..  id=" + id);
+    return this.http.get(url + id) as Observable<JsonResponse>;
+  }
+
+  delete(id: number): Observable<JsonResponse> {
+    return this.http.delete(url + id) as Observable<JsonResponse>;
+  }
 }
