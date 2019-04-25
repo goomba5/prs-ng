@@ -15,6 +15,10 @@ import { ProductListComponent } from "./feature/product/product-list/product-lis
 import { ProductService } from "src/app/service/product.service";
 import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
 import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
+import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
+import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
+import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
+import { SortPipe } from './pipe/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { UserDetailComponent } from './feature/user/user-detail/user-detail.comp
     UserCreateComponent,
     ProductListComponent,
     UserEditComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    VendorEditComponent,
+    VendorDetailComponent,
+    VendorCreateComponent,
+    SortPipe
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UserService, VendorService, ProductService],

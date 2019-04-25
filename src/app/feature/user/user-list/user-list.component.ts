@@ -14,6 +14,9 @@ export class UserListComponent implements OnInit {
   users: User[];
   jr: JsonResponse;
 
+  sortCriteria: string = "username";
+  sortOrder: string = "asc";
+
   constructor(private userSvc: UserService) {}
 
   ngOnInit() {
@@ -22,5 +25,14 @@ export class UserListComponent implements OnInit {
       this.users = this.jr.data as User[];
       console.log(this.users);
     });
+  }
+
+  sortBy(column: string): void {
+    if (this.sortCriteria === column) {
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+    } else {
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
   }
 }

@@ -19,36 +19,34 @@
 <table class="table table-sm" *ngIf="users">
   <tr>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('id')"
         ><u>Id</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('UserName')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('userName')"
         ><u>User Name</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('LastName')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('lastName')"
         ><u>Name</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a
-        class="btn btn-link font-weight-bold"
-        (click)="setSortBy('PhoneNumber')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('phoneNumber')"
         ><u>Phone</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('Email')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('email')"
         ><u>Email</u></a
       >
     </th>
     <th>Privilege</th>
     <th>Action</th>
   </tr>
-  <tr *ngFor="let user of users">
+  <tr *ngFor="let user of (users | sort: sortCriteria:sortOrder)">
     <td>{{ user.id }}</td>
     <td>{{ user.userName }}</td>
     <td>{{ user.lastName }}, {{ user.firstName }}</td>

@@ -23,6 +23,7 @@ export class UserService {
   }
 
   edit(user: User): Observable<any> {
+    console.log("edit");
     return this.http.put(url, user) as Observable<any>;
   }
 
