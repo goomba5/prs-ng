@@ -10,6 +10,9 @@ import { UserDetailComponent } from "src/app/feature/user/user-detail/user-detai
 import { VendorDetailComponent } from "src/app/feature/vendor/vendor-detail/vendor-detail.component";
 import { VendorEditComponent } from "src/app/feature/vendor/vendor-edit/vendor-edit.component";
 import { VendorCreateComponent } from "src/app/feature/vendor/vendor-create/vendor-create.component";
+import { ProductCreateComponent } from "src/app/feature/product/product-create/product-create.component";
+import { ProductDetailComponent } from "src/app/feature/product/product-detail/product-detail.component";
+import { ProductEditComponent } from "src/app/feature/product/product-edit/product-edit.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/user/list", pathMatch: "full" },
@@ -22,6 +25,9 @@ const routes: Routes = [
   { path: "vendor/detail/:id", component: VendorDetailComponent },
   { path: "vendor/edit/:id", component: VendorEditComponent },
   { path: "product/list", component: ProductListComponent },
+  { path: "product/create", component: ProductCreateComponent },
+  { path: "product/detail/:id", component: ProductDetailComponent },
+  { path: "product/edit/:id", component: ProductEditComponent },
   { path: "**", component: UserListComponent }
 ];
 
