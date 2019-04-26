@@ -3,7 +3,7 @@
   <div class="lefthalf">
     <span class="component-title">[{{ title }}]</span>
     <span
-      ><a routerLink="/product/list">
+      ><a routerLink="/product/create">
         <img
           id="createnew"
           width="20"
@@ -18,44 +18,42 @@
 <table class="table table-sm" *ngIf="products">
   <tr>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('Id')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('id')"
         ><u>Id</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('Vendor')"
-        ><u>Vendor</u></a
-      >
+      <a class="btn btn-link font-weight-bold"><u>Vendor Name</u></a>
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('partNumber')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('partNumber')"
         ><u>Part Number</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('name')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('name')"
         ><u>Name</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('price')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('price')"
         ><u>Price</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('unit')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('unit')"
         ><u>Unit</u></a
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="setSortBy('photoPath')"
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('photoPath')"
         ><u>Photo Path</u></a
       >
     </th>
     <th>Privilege</th>
     <th>Action</th>
   </tr>
-  <tr *ngFor="let product of products">
+  <tr *ngFor="let product of (products | sort: sortCriteria:sortOrder)">
     <td>{{ product.id }}</td>
     <td>{{ product.vendor.name }}</td>
     <td>{{ product.partNumber }}</td>
