@@ -13,6 +13,12 @@ const url: string = "http://localhost:8080/users/";
 export class UserService {
   constructor(private http: HttpClient) {}
 
+  login(user: User): Observable<JsonResponse> {
+    return this.http.post(url + "authenticate", user) as Observable<
+      JsonResponse
+    >;
+  }
+
   list(): Observable<JsonResponse> {
     return this.http.get(url) as Observable<JsonResponse>;
   }

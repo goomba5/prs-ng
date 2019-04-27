@@ -13,17 +13,20 @@ import { MenuComponent } from "./core/menu/menu.component";
 import { UserCreateComponent } from "./feature/user/user-create/user-create.component";
 import { ProductListComponent } from "./feature/product/product-list/product-list.component";
 import { ProductService } from "src/app/service/product.service";
-import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
-import { UserDetailComponent } from './feature/user/user-detail/user-detail.component';
-import { VendorEditComponent } from './feature/vendor/vendor-edit/vendor-edit.component';
-import { VendorDetailComponent } from './feature/vendor/vendor-detail/vendor-detail.component';
-import { VendorCreateComponent } from './feature/vendor/vendor-create/vendor-create.component';
-import { SortPipe } from './pipe/sort.pipe';
-import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
-import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
-import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
-import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
-import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
+import { UserEditComponent } from "./feature/user/user-edit/user-edit.component";
+import { UserDetailComponent } from "./feature/user/user-detail/user-detail.component";
+import { VendorEditComponent } from "./feature/vendor/vendor-edit/vendor-edit.component";
+import { VendorDetailComponent } from "./feature/vendor/vendor-detail/vendor-detail.component";
+import { VendorCreateComponent } from "./feature/vendor/vendor-create/vendor-create.component";
+import { SortPipe } from "./pipe/sort.pipe";
+import { ProductCreateComponent } from "./feature/product/product-create/product-create.component";
+import { ProductDetailComponent } from "./feature/product/product-detail/product-detail.component";
+import { ProductEditComponent } from "./feature/product/product-edit/product-edit.component";
+import { PurchaseRequestListComponent } from "./feature/pr/purchase-request-list/purchase-request-list.component";
+import { PurchaseRequestCreateComponent } from "./feature/pr/purchase-request-create/purchase-request-create.component";
+import { PurchaseRequestService } from "src/app/service/purchase-request.service";
+import { UserLoginComponent } from "./feature/user/user-login/user-login.component";
+import { SystemService } from "src/app/service/system.service";
 
 @NgModule({
   declarations: [
@@ -43,10 +46,17 @@ import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-cr
     ProductDetailComponent,
     ProductEditComponent,
     PurchaseRequestListComponent,
-    PurchaseRequestCreateComponent
+    PurchaseRequestCreateComponent,
+    UserLoginComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [UserService, VendorService, ProductService],
+  providers: [
+    UserService,
+    VendorService,
+    ProductService,
+    PurchaseRequestService,
+    SystemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -13,9 +13,13 @@ import { VendorCreateComponent } from "src/app/feature/vendor/vendor-create/vend
 import { ProductCreateComponent } from "src/app/feature/product/product-create/product-create.component";
 import { ProductDetailComponent } from "src/app/feature/product/product-detail/product-detail.component";
 import { ProductEditComponent } from "src/app/feature/product/product-edit/product-edit.component";
+import { PurchaseRequest } from "src/app/model/purchase-request.class";
+import { PurchaseRequestListComponent } from "src/app/feature/pr/purchase-request-list/purchase-request-list.component";
+import { UserLoginComponent } from "src/app/feature/user/user-login/user-login.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/user/list", pathMatch: "full" },
+  { path: "user/login", component: UserLoginComponent },
   { path: "user/list", component: UserListComponent },
   { path: "user/create", component: UserCreateComponent },
   { path: "user/detail/:id", component: UserDetailComponent },
@@ -28,6 +32,10 @@ const routes: Routes = [
   { path: "product/create", component: ProductCreateComponent },
   { path: "product/detail/:id", component: ProductDetailComponent },
   { path: "product/edit/:id", component: ProductEditComponent },
+  {
+    path: "purchaserequest/list",
+    component: PurchaseRequestListComponent
+  },
   { path: "**", component: UserListComponent }
 ];
 
