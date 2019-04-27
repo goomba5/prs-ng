@@ -22,6 +22,8 @@ import { SortPipe } from './pipe/sort.pipe';
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
+import { PurchaseRequestListComponent } from './feature/pr/purchase-request-list/purchase-request-list.component';
+import { PurchaseRequestCreateComponent } from './feature/pr/purchase-request-create/purchase-request-create.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ProductEditComponent } from './feature/product/product-edit/product-edi
     SortPipe,
     ProductCreateComponent,
     ProductDetailComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    PurchaseRequestListComponent,
+    PurchaseRequestCreateComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [UserService, VendorService, ProductService],
