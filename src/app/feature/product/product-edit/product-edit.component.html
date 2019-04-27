@@ -1,3 +1,114 @@
-<p>
-  product-edit works!
-</p>
+<app-menu></app-menu>
+<div class="component-content">
+  <div>
+    <span class="component-title">[{{ title }}]</span>
+    <span
+      ><a routerLink="/product/edit"
+        ><img
+          id="edit"
+          width="20"
+          height="20"
+          src="assets/add-icon.png"
+          title="Add New"/></a
+    ></span>
+  </div>
+  <p *ngIf="!pdt">Loading...</p>
+
+  <div *ngIf="pdt">
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="vendor">Vendor:</label>
+      <div class="col-sm-6 select-list">
+        <select
+          [(ngModel)]="pdt.vendor.id"
+          [compareWith]="compareFn"
+          class="form-control"
+          name="Vendor"
+          id="product-Vendor"
+        >
+          <option
+            *ngFor="let vendor of vendors"
+            [ngValue]="vendor.id"
+            [selected]="vendor.id == pdt.vendor.id"
+            >{{ vendor.name }}</option
+          >
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="name">Name:</label>
+      <input
+        [(ngModel)]="pdt.name"
+        name="name"
+        type="text"
+        class="form-control col-sm-6"
+        id="name"
+        aria-describedby="unameHelp"
+        placeholder="name"
+      />
+      <small id="unameHelp" class="form-text text-muted col-sm-2"
+        >Product Name</small
+      >
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="partNumber"
+        >Part Number:</label
+      >
+      <input
+        [(ngModel)]="pdt.partNumber"
+        name="PartNumber"
+        type="text"
+        class="form-control col-sm-6"
+        id="partNumber"
+        aria-describedby="lnameHelp"
+        placeholder="Part Number"
+      />
+      <small id="lnameHelp" class="form-text text-muted col-sm-2"
+        >Part Number</small
+      >
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="price">Price:</label>
+      <input
+        [(ngModel)]="pdt.price"
+        name="price"
+        type="text"
+        class="form-control col-sm-6"
+        id="price"
+        aria-describedby="phoneHelp"
+        placeholder="price"
+      />
+      <small id="phoneHelp" class="form-text text-muted col-sm-2">Price</small>
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="unit">Unit:</label>
+      <input
+        [(ngModel)]="pdt.unit"
+        name="unit"
+        type="text"
+        class="form-control col-sm-6"
+        id="unit"
+        aria-describedby="productUnit"
+        placeholder="unit"
+      />
+      <small id="emailHelp" class="form-text text-muted col-sm-2">Unit</small>
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="photoPath">Photo Path:</label>
+      <input
+        [(ngModel)]="pdt.photoPath"
+        name="photoPath"
+        type="text"
+        class="form-control col-sm-6"
+        id="photoPath"
+        aria-describedby="adminHelp"
+        placeholder="photoPath"
+      />
+      <small id="adminHelp" class="form-text text-muted col-sm-2"
+        >Photo Path</small
+      >
+    </div>
+    <div class="form-group">
+      <button (click)="edit()" class="btn btn-primary">Update</button>
+    </div>
+  </div>
+</div>
