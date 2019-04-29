@@ -53,7 +53,7 @@
     <th>Privilege</th>
     <th>Action</th>
   </tr>
-  <tr *ngFor="let product of (products | sort: sortCriteria:sortOrder)">
+  <tr *ngFor="let product of products | sort: sortCriteria:sortOrder">
     <td>{{ product.id }}</td>
     <td>{{ product.vendor.name }}</td>
     <td>{{ product.partNumber }}</td>

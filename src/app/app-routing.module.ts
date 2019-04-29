@@ -24,18 +24,22 @@ const routes: Routes = [
   { path: "user/create", component: UserCreateComponent },
   { path: "user/detail/:id", component: UserDetailComponent },
   { path: "user/edit/:id", component: UserEditComponent },
+
   { path: "vendor/list", component: VendorListComponent },
   { path: "vendor/create", component: VendorCreateComponent },
   { path: "vendor/detail/:id", component: VendorDetailComponent },
   { path: "vendor/edit/:id", component: VendorEditComponent },
+
   { path: "product/list", component: ProductListComponent },
   { path: "product/create", component: ProductCreateComponent },
   { path: "product/detail/:id", component: ProductDetailComponent },
   { path: "product/edit/:id", component: ProductEditComponent },
+
   {
     path: "purchaserequest/list",
     component: PurchaseRequestListComponent
   },
+
   { path: "**", component: UserListComponent }
 ];
 

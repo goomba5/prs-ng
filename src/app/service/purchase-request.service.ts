@@ -4,7 +4,7 @@ import { PurchaseRequest } from "../model/purchase-request.class";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
-const url: string = "http://localhost:8080/products/";
+const url: string = "http://localhost:8080/purchase-requests/";
 
 @Injectable({
   providedIn: "root"

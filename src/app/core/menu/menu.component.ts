@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Menu } from "../../model/menu.class";
+import { SystemService } from "../../service/system.service";
+import { User } from "../../model/user.class";
 
 @Component({
   selector: "app-menu",
@@ -22,7 +24,16 @@ export class MenuComponent implements OnInit {
     new Menu("About", "/about", "This is the about menu item")
   ];
 
-  constructor() {}
+  user: User;
 
-  ngOnInit() {}
+  constructor(private sysSvc: SystemService) {}
+
+  ngOnInit() {
+    if (this.sysSvc.data.user.loggedIn) {
+      this.user = this.sysSvc.data.user.instance;
+      console.log("Logged in user: ", this.user);
+    } else {
+      console.log("User not logged in.");
+    }
+  }
 }

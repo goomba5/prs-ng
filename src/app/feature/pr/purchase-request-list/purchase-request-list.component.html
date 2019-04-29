@@ -3,7 +3,7 @@
   <div class="lefthalf">
     <span class="component-title">[{{ title }}]</span>
     <span
-      ><a routerLink="/purchaserequest">
+      ><a routerLink="purchaserequest/list">
         <img
           id="createnew"
           width="20"
@@ -14,8 +14,8 @@
     </span>
   </div>
 </div>
-<p *ngIf="!purchaseRequest">Loading ...</p>
-<table class="table table-sm" *ngIf="purchaseRequest">
+<p *ngIf="!purchaseRequests">Loading ...</p>
+<table class="table table-sm" *ngIf="purchaseRequests">
   <tr>
     <th class="table-secondary btn-link">
       <a class="btn btn-link font-weight-bold" (click)="sortBy('id')"
@@ -23,49 +23,36 @@
       >
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold"><u>Vendor Name</u></a>
+      <a class="btn btn-link font-weight-bold"><u>User Name</u></a>
     </th>
     <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="sortBy('partNumber')"
-        ><u>Part Number</u></a
-      >
-    </th>
-    <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="sortBy('name')"
-        ><u>Name</u></a
-      >
-    </th>
-    <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="sortBy('price')"
-        ><u>Price</u></a
-      >
-    </th>
-    <th class="table-secondary btn-link">
-      <a class="btn btn-link font-weight-bold" (click)="sortBy('unit')"
-        ><u>Unit</u></a
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('description')"
+        ><u>Description</u></a
       >
     </th>
     <th class="table-secondary btn-link">
       <a class="btn btn-link font-weight-bold" (click)="sortBy('photoPath')"
-        ><u>Photo Path</u></a
+        ><u>Status</u></a
       >
     </th>
-    <th>Privilege</th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold" (click)="sortBy('photoPath')"
+        ><u>Total</u></a
+      >
+    </th>
     <th>Action</th>
   </tr>
-  <tr *ngFor="let product of products | sort: sortCriteria:sortOrder">
-    <td>{{ product.id }}</td>
-    <td>{{ product.vendor.name }}</td>
-    <td>{{ product.partNumber }}</td>
-    <td>{{ product.name }}</td>
-    <td>{{ product.price }}</td>
-    <td>{{ product.unit }}</td>
-    <td>{{ product.photoPath }}</td>
+  <tr *ngFor="let purchaseRequest of purchaseRequests">
+    <td>{{ purchaseRequest.id }}</td>
+    <td>{{ purchaseRequest.user.userName }}</td>
+    <td>{{ purchaseRequest.description }}</td>
+    <td>{{ purchaseRequest.status }}</td>
+    <td>{{ purchaseRequest.total }}</td>
     <td class="actions">
-      <a routerLink="/product/detail/{{ product.id }}"
+      <a routerLink="/purchaseRequest/detail/{{ purchaseRequest.id }}"
         ><img src="assets/details.png" width="20" height="20" title="Detail"
       /></a>
-      <a routerLink="/product/edit/{{ product.id }}"
+      <a routerLink="/purchaseRequest/edit/{{ purchaseRequest.id }}"
         ><img src="assets/pencil-icon.png" width="20" height="20" title="Edit"
       /></a>
     </td>
