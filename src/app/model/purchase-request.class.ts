@@ -13,16 +13,16 @@ export class PurchaseRequest {
   reasonForRejection: String;
 
   constructor(
-    id: number,
-    user: User,
-    description: String,
-    justification: String,
-    dateNeeded: String,
-    deliveryMode: String,
-    status: String,
-    total: number,
-    submittedDate: String,
-    reasonForRejection: String
+    id: number = 0,
+    user: User = null,
+    description: String = "",
+    justification: String = "",
+    dateNeeded: String = "",
+    deliveryMode: String = "",
+    status: String = "",
+    total: number = 0,
+    submittedDate: String = "",
+    reasonForRejection: String = ""
   ) {
     this.id = id;
     this.user = user;

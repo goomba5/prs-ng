@@ -1,3 +1,97 @@
-<p>
-  purchase-request-create works!
-</p>
+<app-menu></app-menu>
+<div id="component">
+  <div id="pagetitle">
+    <span>[{{ title }}]</span>
+  </div>
+  <p *ngIf="!purchaseRequests">Loading...</p>
+  <div *ngIf="purchaseRequests">
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="description"
+        >Description:</label
+      >
+      <input
+        [(ngModel)]="purchaseRequests.description"
+        name="Description"
+        type="text"
+        class="form-control col-sm-6"
+        id="description"
+        aria-describedby="fnameHelp"
+        placeholder="Description"
+      />
+      <small id="fnameHelp" class="form-text text-muted col-sm-2"
+        >Description</small
+      >
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="justification"
+        >Justification:</label
+      >
+      <input
+        [(ngModel)]="purchaseRequests.justification"
+        name="Justification"
+        type="text"
+        class="form-control col-sm-6"
+        id="justification"
+        aria-describedby="justification"
+        placeholder="Justification"
+      />
+      <small id="ljustificationHelp" class="form-text text-muted col-sm-2"
+        >Justification</small
+      >
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="dateNeeded"
+        >Date Needed:</label
+      >
+      <input
+        [(ngModel)]="purchaseRequests.dateNeeded"
+        name="dateNeeded"
+        type="date"
+        class="form-control col-sm-6"
+        id="dateNeeded"
+        aria-describedby="unameHelp"
+        placeholder="Date Needed"
+      />
+      <small id="unameHelp" class="form-text text-muted col-sm-2"
+        >Date Needed</small
+      >
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="deliveryMode"
+        >Delivery Mode:</label
+      >
+      <input
+        [(ngModel)]="purchaseRequests.deliveryMode"
+        name="deliveryMode"
+        type="text"
+        class="form-control col-sm-6"
+        id="deliveryMode"
+        aria-describedby="pwdHelp"
+        placeholder="Delivery Mode"
+      />
+      <small id="pwdHelp" class="form-text text-muted col-sm-2"
+        >Delivery Mode</small
+      >
+    </div>
+    <!-- <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="submittedDate"
+        >Submitted Date:</label
+      >
+      <input
+        [(ngModel)]="purchaseRequests.submittedDate"
+        name="submittedDate"
+        type="text"
+        class="form-control col-sm-6"
+        id="submittedDate"
+        aria-describedby="emailHelp"
+        placeholder="Submitted Date"
+      />
+      <small id="emailHelp" class="form-text text-muted col-sm-2"
+        >Submitted Date</small
+      >
+    </div> -->
+    <div class="form-group">
+      <button (click)="create()" class="btn btn-primary">Create</button>
+    </div>
+  </div>
+</div>

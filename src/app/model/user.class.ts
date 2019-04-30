@@ -10,15 +10,15 @@ export class User {
   admin: boolean;
 
   constructor(
-    id: number,
-    userName: String,
-    password: String,
-    firstName: String,
-    lastName: String,
-    phoneNumber: String,
-    email: String,
-    reviewer: boolean,
-    admin: boolean
+    id: number = 0,
+    userName: String = "",
+    password: String = "",
+    firstName: String = "",
+    lastName: String = "",
+    phoneNumber: String = "",
+    email: String = "",
+    reviewer: boolean = true,
+    admin: boolean = true
   ) {
     this.id = id;
     this.userName = userName;

@@ -16,6 +16,7 @@ import { ProductEditComponent } from "src/app/feature/product/product-edit/produ
 import { PurchaseRequest } from "src/app/model/purchase-request.class";
 import { PurchaseRequestListComponent } from "src/app/feature/pr/purchase-request-list/purchase-request-list.component";
 import { UserLoginComponent } from "src/app/feature/user/user-login/user-login.component";
+import { PurchaseRequestCreateComponent } from "src/app/feature/pr/purchase-request-create/purchase-request-create.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/user/list", pathMatch: "full" },
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: "purchaserequest/list",
     component: PurchaseRequestListComponent
+  },
+  {
+    path: "purchaserequest/create",
+    component: PurchaseRequestCreateComponent
   },
 
   { path: "**", component: UserListComponent }
