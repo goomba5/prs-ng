@@ -16,8 +16,14 @@ export class PurchaseRequestService {
     return this.http.get(url) as Observable<JsonResponse>;
   }
 
-  create(purchaseRequest: PurchaseRequest): Observable<any> {
-    return this.http.post(url, purchaseRequest) as Observable<any>;
+  // create(purchaseRequest: PurchaseRequest): Observable<any> {
+  //   return this.http.post(url+"/submit-new", purchaseRequest) as Observable<any>;
+  // }
+
+  submitNew(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url + "/submit-new", purchaseRequest) as Observable<
+      JsonResponse
+    >;
   }
 
   edit(purchaseRequest: PurchaseRequest): Observable<any> {
