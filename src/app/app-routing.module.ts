@@ -17,6 +17,7 @@ import { PurchaseRequest } from "src/app/model/purchase-request.class";
 import { PurchaseRequestListComponent } from "src/app/feature/pr/purchase-request-list/purchase-request-list.component";
 import { UserLoginComponent } from "src/app/feature/user/user-login/user-login.component";
 import { PurchaseRequestCreateComponent } from "src/app/feature/pr/purchase-request-create/purchase-request-create.component";
+import { PurchaseRequestDetailComponent } from "src/app/feature/pr/purchase-request-detail/purchase-request-detail.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/user/list", pathMatch: "full" },
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: "purchaserequest/create",
     component: PurchaseRequestCreateComponent
+  },
+  {
+    path: "purchaserequest/detail/:id",
+    component: PurchaseRequestDetailComponent
   },
 
   { path: "**", component: UserListComponent }
