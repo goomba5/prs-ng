@@ -10,7 +10,7 @@ import { PurchaseRequestService } from "../../../service/purchase-request.servic
   styleUrls: ["./purchase-request-detail.component.css"]
 })
 export class PurchaseRequestDetailComponent implements OnInit {
-  title: string = "Product Detail";
+  title: string = "Purchase Request Details";
   jr: JsonResponse;
   purchaseRequest: PurchaseRequest;
 

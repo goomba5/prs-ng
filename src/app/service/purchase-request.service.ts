@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { JsonResponse } from "../model/json-response.class";
 import { PurchaseRequest } from "../model/purchase-request.class";
+import { User } from "../model/user.class";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
@@ -22,6 +23,13 @@ export class PurchaseRequestService {
 
   submitNew(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
     return this.http.post(url + "/submit-new", purchaseRequest) as Observable<
+      JsonResponse
+    >;
+  }
+
+  prReviewList(user: User): Observable<JsonResponse> {
+    console.log("Pr review");
+    return this.http.get(url + "list-review/" + user) as Observable<
       JsonResponse
     >;
   }

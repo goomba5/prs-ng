@@ -18,6 +18,9 @@ import { PurchaseRequestListComponent } from "src/app/feature/pr/purchase-reques
 import { UserLoginComponent } from "src/app/feature/user/user-login/user-login.component";
 import { PurchaseRequestCreateComponent } from "src/app/feature/pr/purchase-request-create/purchase-request-create.component";
 import { PurchaseRequestDetailComponent } from "src/app/feature/pr/purchase-request-detail/purchase-request-detail.component";
+import { PurchaseRequestEditComponent } from "src/app/feature/pr/purchase-request-edit/purchase-request-edit.component";
+import { PurchaseRequestReviewComponent } from "src/app/feature/pr/purchase-request-review/purchase-request-review.component";
+import { PurchaseRequestLinesComponent } from "src/app/feature/pr/purchase-request-lines/purchase-request-lines.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/user/list", pathMatch: "full" },
@@ -48,6 +51,18 @@ const routes: Routes = [
   {
     path: "purchaserequest/detail/:id",
     component: PurchaseRequestDetailComponent
+  },
+  {
+    path: "purchaserequest/edit/:id",
+    component: PurchaseRequestEditComponent
+  },
+  {
+    path: "purchaserequest/review",
+    component: PurchaseRequestReviewComponent
+  },
+  {
+    path: "purchaserequest/lines/:id",
+    component: PurchaseRequestLinesComponent
   },
 
   { path: "**", component: UserListComponent }

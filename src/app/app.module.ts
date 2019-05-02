@@ -29,6 +29,8 @@ import { UserLoginComponent } from "./feature/user/user-login/user-login.compone
 import { SystemService } from "src/app/service/system.service";
 import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
 import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
+import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
+import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lines/purchase-request-lines.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit
     PurchaseRequestCreateComponent,
     UserLoginComponent,
     PurchaseRequestDetailComponent,
-    PurchaseRequestEditComponent
+    PurchaseRequestEditComponent,
+    PurchaseRequestReviewComponent,
+    PurchaseRequestLinesComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
