@@ -44,4 +44,22 @@ export class PurchaseRequestService {
   delete(id: number): Observable<JsonResponse> {
     return this.http.delete(url + id) as Observable<JsonResponse>;
   }
+
+  submitForReview(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url + "submit-review", purchaseRequest) as Observable<
+      JsonResponse
+    >;
+  }
+
+  approve(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url + "approve", purchaseRequest) as Observable<
+      JsonResponse
+    >;
+  }
+
+  reject(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url + "reject", purchaseRequest) as Observable<
+      JsonResponse
+    >;
+  }
 }

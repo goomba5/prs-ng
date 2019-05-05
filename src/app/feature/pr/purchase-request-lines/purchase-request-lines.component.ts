@@ -44,4 +44,11 @@ export class PurchaseRequestLinesComponent implements OnInit {
       console.log("Prli = " + this.lines);
     });
   }
+
+  submit() {
+    this.prSvc.submitForReview(this.prSummary).subscribe(jresp => {
+      this.prSummary = jresp.data as PurchaseRequest;
+      this.router.navigateByUrl("/purchase-request/list");
+    });
+  }
 }

@@ -24,7 +24,6 @@
     <th class="table-secondary btn-link">
       <a class="btn btn-link font-weight-bold"><u>Total</u></a>
     </th>
-    <th>Action</th>
   </tr>
   <tr>
     <td>{{ prSummary.id }}</td>
@@ -34,7 +33,6 @@
   </tr>
 </table>
 
-<!--  -->
 <div class="lefthalf" *ngIf="prSummary">
   <span class="component-title">[{{ title1 }}]</span>
   <span
@@ -48,6 +46,7 @@
     /></a>
   </span>
 </div>
+
 <p *ngIf="!lines">Loading ...</p>
 <table class="table table-sm" *ngIf="lines">
   <tr>
@@ -70,7 +69,6 @@
     <td>{{ line.product.name }}</td>
     <td>{{ line.quantity }}</td>
     <td>{{ line.product.price }}</td>
-    <td>{{ line.total }}</td>
     <td class="actions">
       <a routerLink="/purchase-request-line-item/edit/{{ line.id }}"
         ><img src="assets/pencil-icon.png" width="20" height="20" title="Edit"
@@ -88,7 +86,11 @@
   </tr>
   <tr>
     <td colspan="4">
-      <button class="btn btn-primary">
+      <button
+        class="btn btn-primary"
+        *ngIf="prSummary.status == 'New' && lines.length != 0"
+        (click)="submit()"
+      >
         Submit
       </button>
     </td>
