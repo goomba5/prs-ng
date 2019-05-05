@@ -27,7 +27,7 @@ export class PurchaseRequestDetailComponent implements OnInit {
     });
   }
 
-  getPurchaseRequestById(id: string) {
+  getPurchaseRequestById(id: number) {
     this.purchaseReqSvc.get(id).subscribe(jsresp => {
       this.jr = jsresp;
       this.purchaseRequest = this.jr.data as PurchaseRequest;
@@ -35,7 +35,7 @@ export class PurchaseRequestDetailComponent implements OnInit {
   }
   remove(): void {
     this.purchaseReqSvc.delete(this.purchaseRequest.id).subscribe(res => {
-      this.router.navigateByUrl("/purchaserequest/list");
+      this.router.navigateByUrl("/purchase-request/list");
     });
   }
 }

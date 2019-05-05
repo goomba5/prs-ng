@@ -1,22 +1,22 @@
 export class User {
   id: number;
-  userName: String;
-  password: String;
-  firstName: String;
-  lastName: String;
-  phoneNumber: String;
-  email: String;
+  userName: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
   reviewer: boolean;
   admin: boolean;
 
   constructor(
-    id: number = 0,
-    userName: String = "",
-    password: String = "",
-    firstName: String = "",
-    lastName: String = "",
-    phoneNumber: String = "",
-    email: String = "",
+    id: number,
+    userName: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    phoneNumber: string,
+    email: string,
     reviewer: boolean = true,
     admin: boolean = true
   ) {

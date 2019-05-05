@@ -16,6 +16,8 @@ export class PurchaseRequestReviewComponent implements OnInit {
   prReviews: PurchaseRequest[];
   jr: JsonResponse;
 
+  isLoggedIn: User;
+
   constructor(
     private purchaseRequestSvc: PurchaseRequestService,
     private sysSvc: SystemService,
@@ -25,14 +27,17 @@ export class PurchaseRequestReviewComponent implements OnInit {
 
   ngOnInit() {
     if (this.sysSvc.data.user.loggedIn) {
-      this.purchaseRequestSvc
-        .prReviewList(this.sysSvc.data.user.instance)
-        .subscribe(jresp => {
-          this.jr = jresp;
-          this.prReviews = this.jr.data as PurchaseRequest[];
-        });
+      this.isLoggedIn = this.sysSvc.data.user.instance;
     } else {
-      console.log("Please sign in before reviewing purchase requests.");
+      console.log("Must log in before reviewing purchase requests.");
     }
+
+    this.purchaseRequestSvc
+      .prReviewList(this.isLoggedIn.id)
+      .subscribe(jresp => {
+        this.jr = jresp;
+        this.prReviews = this.jr.data as PurchaseRequest[];
+        console.log("1", this.prReviews);
+      });
   }
 }

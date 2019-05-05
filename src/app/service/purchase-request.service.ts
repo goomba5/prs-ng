@@ -27,11 +27,9 @@ export class PurchaseRequestService {
     >;
   }
 
-  prReviewList(user: User): Observable<JsonResponse> {
+  prReviewList(id: number): Observable<JsonResponse> {
     console.log("Pr review");
-    return this.http.get(url + "list-review/" + user) as Observable<
-      JsonResponse
-    >;
+    return this.http.get(url + "list-review/" + id) as Observable<JsonResponse>;
   }
 
   edit(purchaseRequest: PurchaseRequest): Observable<any> {
@@ -39,7 +37,7 @@ export class PurchaseRequestService {
     return this.http.put(url, purchaseRequest) as Observable<any>;
   }
 
-  get(id: string): Observable<JsonResponse> {
+  get(id: number): Observable<JsonResponse> {
     return this.http.get(url + id) as Observable<JsonResponse>;
   }
 

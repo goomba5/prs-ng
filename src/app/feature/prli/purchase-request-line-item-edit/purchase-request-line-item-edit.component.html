@@ -1,0 +1,63 @@
+<app-menu></app-menu>
+<div></div>
+<div class="component-content">
+  <div>
+    <span class="component-title">[{{ title }}] | </span>
+    <span
+      ><a routerLink="/purchase-request/lines/{{ lineItem.purchaseRequest.id }}"
+        >Back to {{ lineItem.purchaseRequest.description }}</a
+      ></span
+    >
+  </div>
+  <p *ngIf="!lineItem">Loading ...</p>
+
+  <div *ngIf="lineItem">
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="product">Product:</label>
+      <div class=" col-sm-6">
+        <select
+          [(ngModel)]="lineItem.product"
+          class="form-control form-control-md"
+          name="Product"
+          id="product"
+        >
+          <option [ngValue]="lineItem.product"
+            >{{ lineItem.product.name }} from
+            {{ lineItem.product.vendor.name }}</option
+          >
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2" for="quantity">Quantity:</label>
+      <input
+        [(ngModel)]="lineItem.quantity"
+        name="Quantity"
+        type="number"
+        class="form-control col-sm-6"
+        id="quantity"
+        aria-describedby="quantityHelp"
+        placeholder="Quantity"
+      />
+      <small id="quantityHelp" class="form-text text-muted col-sm-2"
+        >Product Quantity</small
+      >
+    </div>
+    <div class="form-group">
+      <button
+        (click)="edit()"
+        class="btn btn-primary"
+        style="margin-right: 5px"
+      >
+        Update
+      </button>
+      <button
+        (click)="delete()"
+        class="btn btn-danger"
+        style="margin-right: 5px"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

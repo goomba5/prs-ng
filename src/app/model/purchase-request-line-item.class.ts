@@ -6,27 +6,24 @@ export class PurchaseRequestLineItem {
   purchaseRequest: PurchaseRequest;
   product: Product;
   quantity: number;
-  active: boolean;
 
   constructor(
-    id: number,
-    purchaseRequest: PurchaseRequest,
-    product: Product,
-    quantity: number,
-    active: boolean
+    id: number = 0,
+    purchaseRequest: PurchaseRequest = null,
+    product: Product = null,
+    quantity: number = 0
   ) {
     this.id = id;
     this.purchaseRequest = purchaseRequest;
     this.product = product;
     this.quantity = quantity;
-    this.active = active;
   }
 
   about(): void {
     console.log(
       `id: ${this.id} purchaseRequest: ${this.purchaseRequest} product: ${
         this.product
-      } quantity: ${this.quantity} active: ${this.active}`
+      } quantity: ${this.quantity}`
     );
   }
 }

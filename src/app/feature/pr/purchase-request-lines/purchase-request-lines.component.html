@@ -1,3 +1,96 @@
-<p>
-  purchase-request-lines works!
-</p>
+<app-menu></app-menu>
+<div class="component-content">
+  <div class="lefthalf">
+    <span class="component-title">[{{ title }}]</span>
+    <span
+      ><a routerLink="/purchase-request/list">
+        <img id="createnew" width="20" height="20" title="Back to List"
+      /></a>
+    </span>
+  </div>
+</div>
+<p *ngIf="!prSummary">Loading ...</p>
+<table class="table table-sm" *ngIf="prSummary">
+  <tr>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold"><u>Id</u></a>
+    </th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold"><u>Description</u></a>
+    </th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold"><u>Status</u></a>
+    </th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold"><u>Total</u></a>
+    </th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>{{ prSummary.id }}</td>
+    <td>{{ prSummary.description }}</td>
+    <td>{{ prSummary.status }}</td>
+    <td>{{ prSummary.total }}</td>
+  </tr>
+</table>
+
+<!--  -->
+<div class="lefthalf" *ngIf="prSummary">
+  <span class="component-title">[{{ title1 }}]</span>
+  <span
+    ><a routerLink="/purchase-request-line-item/create/{{ prSummary.id }}">
+      <img
+        id="createnew"
+        width="20"
+        height="20"
+        src="assets/add-icon.png"
+        title="Purchase Request List"
+    /></a>
+  </span>
+</div>
+<p *ngIf="!lines">Loading ...</p>
+<table class="table table-sm" *ngIf="lines">
+  <tr>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold"><u>Id</u></a>
+    </th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold"><u>Product</u></a>
+    </th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold"><u>Quantity</u></a>
+    </th>
+    <th class="table-secondary btn-link">
+      <a class="btn btn-link font-weight-bold"><u>Price</u></a>
+    </th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let line of lines">
+    <td>{{ line.id }}</td>
+    <td>{{ line.product.name }}</td>
+    <td>{{ line.quantity }}</td>
+    <td>{{ line.product.price }}</td>
+    <td>{{ line.total }}</td>
+    <td class="actions">
+      <a routerLink="/purchase-request-line-item/edit/{{ line.id }}"
+        ><img src="assets/pencil-icon.png" width="20" height="20" title="Edit"
+      /></a>
+
+      <a routerLink="/purchase-request/delete/{{ prSummary.id }}/{{ line.id }}"
+        ><img src="assets/delete.jpg" width="20" height="20" title="Delete"
+      /></a>
+    </td>
+  </tr>
+  <tr *ngIf="!lines || lines.length == 0">
+    <td colspan="5" class="alert alert-warning" style="text-align: center">
+      This purchase request does not have any line items. Add some!
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <button class="btn btn-primary">
+        Submit
+      </button>
+    </td>
+  </tr>
+</table>

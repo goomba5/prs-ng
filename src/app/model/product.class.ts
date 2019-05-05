@@ -3,20 +3,20 @@ import { Vendor } from "./vendor.class";
 export class Product {
   id: number;
   vendor: Vendor;
-  partNumber: String;
-  name: String;
+  partNumber: string;
+  name: string;
   price: number;
-  unit: String;
-  photoPath: String;
+  unit: string;
+  photoPath: string;
 
   constructor(
     id: number,
     vendor: Vendor,
-    name: String,
-    partNumber: String,
+    name: string,
+    partNumber: string,
     price: number,
-    unit: String,
-    photoPath: String
+    unit: string,
+    photoPath: string
   ) {
     this.id = id;
     this.vendor = vendor;

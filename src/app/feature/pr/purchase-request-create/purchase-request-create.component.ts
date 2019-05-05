@@ -14,9 +14,9 @@ import { SystemService } from "../../../service/system.service";
 export class PurchaseRequestCreateComponent implements OnInit {
   title: string = "Create Purchase Request";
   resp: any;
+  user: User;
   jr: JsonResponse;
-
-  purchaseRequests: PurchaseRequest = new PurchaseRequest();
+  purchaseRequests: PurchaseRequest;
 
   constructor(
     private purchaseRequestSvc: PurchaseRequestService,
@@ -27,7 +27,19 @@ export class PurchaseRequestCreateComponent implements OnInit {
 
   ngOnInit() {
     if (this.sysSvc.data.user.loggedIn) {
-      this.purchaseRequests.user = this.sysSvc.data.user.instance;
+      this.user = this.sysSvc.data.user.instance;
+      this.purchaseRequests = new PurchaseRequest(
+        0,
+        this.user,
+        "",
+        "",
+        "",
+        "",
+        "",
+        0,
+        "",
+        ""
+      );
     } else {
       console.error("User must log in before submitting new purchase request.");
     }
@@ -36,7 +48,7 @@ export class PurchaseRequestCreateComponent implements OnInit {
   create() {
     this.purchaseRequestSvc.submitNew(this.purchaseRequests).subscribe(resp => {
       this.jr = resp;
-      this.router.navigate(["/purchaserequest/list"]);
+      this.router.navigate(["/purchase-request/list"]);
     });
   }
 }

@@ -3,26 +3,26 @@ import { User } from "./user.class";
 export class PurchaseRequest {
   id: number;
   user: User;
-  description: String;
-  justification: String;
-  dateNeeded: String;
-  deliveryMode: String;
-  status: String;
+  description: string;
+  justification: string;
+  dateNeeded: string;
+  deliveryMode: string;
+  status: string;
   total: number;
-  submittedDate: String;
-  reasonForRejection: String;
+  submittedDate: string;
+  reasonForRejection: string;
 
   constructor(
-    id: number = 0,
-    user: User = null,
-    description: String = "",
-    justification: String = "",
-    dateNeeded: String = "",
-    deliveryMode: String = "",
-    status: String = "",
-    total: number = 0,
-    submittedDate: String = "",
-    reasonForRejection: String = ""
+    id: number,
+    user: User,
+    description: string,
+    justification: string,
+    dateNeeded: string,
+    deliveryMode: string,
+    status: string,
+    total: number,
+    submittedDate: string,
+    reasonForRejection: string
   ) {
     this.id = id;
     this.user = user;

@@ -27,10 +27,13 @@ import { PurchaseRequestCreateComponent } from "./feature/pr/purchase-request-cr
 import { PurchaseRequestService } from "src/app/service/purchase-request.service";
 import { UserLoginComponent } from "./feature/user/user-login/user-login.component";
 import { SystemService } from "src/app/service/system.service";
-import { PurchaseRequestDetailComponent } from './feature/pr/purchase-request-detail/purchase-request-detail.component';
-import { PurchaseRequestEditComponent } from './feature/pr/purchase-request-edit/purchase-request-edit.component';
-import { PurchaseRequestReviewComponent } from './feature/pr/purchase-request-review/purchase-request-review.component';
-import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lines/purchase-request-lines.component';
+import { PurchaseRequestDetailComponent } from "./feature/pr/purchase-request-detail/purchase-request-detail.component";
+import { PurchaseRequestEditComponent } from "./feature/pr/purchase-request-edit/purchase-request-edit.component";
+import { PurchaseRequestReviewComponent } from "./feature/pr/purchase-request-review/purchase-request-review.component";
+import { PurchaseRequestLinesComponent } from "./feature/pr/purchase-request-lines/purchase-request-lines.component";
+import { PurchaseRequestLineItemService } from "src/app/service/purchase-request-line-item.service";
+import { PurchaseRequestLineItemEditComponent } from './feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component';
+import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-request-line-item-create/purchase-request-line-item-create.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,9 @@ import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lin
     PurchaseRequestDetailComponent,
     PurchaseRequestEditComponent,
     PurchaseRequestReviewComponent,
-    PurchaseRequestLinesComponent
+    PurchaseRequestLinesComponent,
+    PurchaseRequestLineItemEditComponent,
+    PurchaseRequestLineItemCreateComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
@@ -63,6 +68,7 @@ import { PurchaseRequestLinesComponent } from './feature/pr/purchase-request-lin
     VendorService,
     ProductService,
     PurchaseRequestService,
+    PurchaseRequestLineItemService,
     SystemService
   ],
   bootstrap: [AppComponent]
