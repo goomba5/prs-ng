@@ -22,7 +22,7 @@
           id="product"
         >
           <option *ngFor="let product of products" [ngValue]="product"
-            >{{ product.name }} &bull; {{ product.vendor.name }}</option
+            >{{ product.name }} from {{ product.vendor.name }}</option
           >
         </select>
       </div>

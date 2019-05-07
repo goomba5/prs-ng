@@ -35,7 +35,6 @@ export class PurchaseRequestLineItemCreateComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // get the list of products
     this.productService.list().subscribe(jr => {
       this.products = jr.data as Product[];
       console.log("PRLI Products = " + this.products);
@@ -50,19 +49,11 @@ export class PurchaseRequestLineItemCreateComponent implements OnInit {
   }
 
   create() {
-    // pass the lineItem object to the prliService create method because the PRLI Controller needs it as an argument
     this.prliService.create(this.lineItem).subscribe(resp => {
       this.lineItem = resp.data as PurchaseRequestLineItem;
       this.router.navigateByUrl(
         "/purchase-request/lines/" + this.lineItem.purchaseRequest.id
       );
     });
-
-    // getPurchaseRequestById(id: number) {
-    //   this.prService.get(id).subscribe(jsresp => {
-    //     this.jr = jsresp;
-    //     this.pr = this.jr.data as PurchaseRequest;
-    //   });
-    // }
   }
 }

@@ -23,6 +23,7 @@ import { PurchaseRequestCreateComponent } from "src/app/feature/pr/purchase-requ
 import { PurchaseRequestDetailComponent } from "src/app/feature/pr/purchase-request-detail/purchase-request-detail.component";
 import { PurchaseRequestEditComponent } from "src/app/feature/pr/purchase-request-edit/purchase-request-edit.component";
 import { PurchaseRequestReviewComponent } from "src/app/feature/pr/purchase-request-review/purchase-request-review.component";
+import { PurchaseRequestApproveComponent } from "src/app/feature/pr/purchase-request-approve/purchase-request-approve.component";
 
 import { PurchaseRequestLinesComponent } from "src/app/feature/pr/purchase-request-lines/purchase-request-lines.component";
 import { PurchaseRequestLineItemEditComponent } from "src/app/feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component";
@@ -73,6 +74,10 @@ const routes: Routes = [
   {
     path: "purchase-request/delete/:id/:del",
     component: PurchaseRequestLinesComponent
+  },
+  {
+    path: "purchase-request/approve/:id",
+    component: PurchaseRequestApproveComponent
   },
 
   {

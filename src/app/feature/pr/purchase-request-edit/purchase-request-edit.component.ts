@@ -25,10 +25,11 @@ export class PurchaseRequestEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.prSvc.get(this.id).subscribe(jr => {
-        this.prEdit = jr.data as PurchaseRequest;
-      });
+    this.route.params.subscribe(parms => (this.id = parms["id"]));
+    console.log("Pr id ", this.id);
+    this.prSvc.get(this.id).subscribe(resp => {
+      this.jr = resp;
+      this.prEdit = this.jr.data as PurchaseRequest;
     });
   }
 

@@ -39,8 +39,12 @@
     <td>{{ prReview.status }}</td>
     <td>{{ prReview.total }}</td>
     <td class="actions">
-      <a routerLink="/purchase-request/approve/{{ prReview.user.id }}"
-        ><img src="assets/lines.png" width="20" height="20" title="Detail"
+      <a routerLink="/purchase-request/approve/{{ prReview.id }}"
+        ><img
+          src="assets/review.png"
+          width="20"
+          height="20"
+          title="Approve/Reject"
       /></a>
     </td>
   </tr>

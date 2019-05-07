@@ -9,8 +9,8 @@
     </span>
   </div>
 </div>
-<p *ngIf="!prSummary">Loading ...</p>
-<table class="table table-sm" *ngIf="prSummary">
+<p *ngIf="!purchaseRequest">Loading ...</p>
+<table class="table table-sm" *ngIf="purchaseRequest">
   <tr>
     <th class="table-secondary btn-link">
       <a class="btn btn-link font-weight-bold"><u>Id</u></a>
@@ -26,29 +26,16 @@
     </th>
   </tr>
   <tr>
-    <td>{{ prSummary.id }}</td>
-    <td>{{ prSummary.description }}</td>
-    <td>{{ prSummary.status }}</td>
-    <td>{{ prSummary.total }}</td>
+    <td>{{ purchaseRequest.id }}</td>
+    <td>{{ purchaseRequest.description }}</td>
+    <td>{{ purchaseRequest.status }}</td>
+    <td>{{ purchaseRequest.total }}</td>
   </tr>
 </table>
 
-<div class="lefthalf" *ngIf="prSummary">
-  <span class="component-title">[{{ title1 }}]</span>
-  <span
-    ><a routerLink="/purchase-request-line-item/create/{{ prSummary.id }}">
-      <img
-        id="createnew"
-        width="20"
-        height="20"
-        src="assets/add-icon.png"
-        title="Purchase Request List"
-    /></a>
-  </span>
-</div>
-
-<p *ngIf="!lines">Loading ...</p>
-<table class="table table-sm" *ngIf="lines">
+<span class="component-title">[{{ title1 }}]</span>
+<p *ngIf="!lineItems">Loading ...</p>
+<table class="table table-sm" *ngIf="lineItems">
   <tr>
     <th class="table-secondary btn-link">
       <a class="btn btn-link font-weight-bold"><u>Id</u></a>
@@ -62,37 +49,36 @@
     <th class="table-secondary btn-link">
       <a class="btn btn-link font-weight-bold"><u>Price</u></a>
     </th>
-    <th>Action</th>
   </tr>
-  <tr *ngFor="let line of lines">
+  <tr *ngFor="let line of lineItems">
     <td>{{ line.id }}</td>
     <td>{{ line.product.name }}</td>
     <td>{{ line.quantity }}</td>
     <td>{{ line.product.price }}</td>
-    <td class="actions">
-      <a routerLink="/purchase-request-line-item/edit/{{ line.id }}"
-        ><img src="assets/pencil-icon.png" width="20" height="20" title="Edit"
-      /></a>
+  </tr>
 
-      <a routerLink="/purchase-request/delete/{{ prSummary.id }}/{{ line.id }}"
-        ><img src="assets/delete.jpg" width="20" height="20" title="Delete"
-      /></a>
-    </td>
-  </tr>
-  <tr *ngIf="!lines || lines.length == 0">
-    <td colspan="5" class="alert alert-warning" style="text-align: center">
-      This purchase request does not have any line items. Add some!
-    </td>
-  </tr>
   <tr>
-    <td colspan="4" *ngIf="prSummary">
+    <td colspan="4">
       <button
         class="btn btn-primary"
-        *ngIf="prSummary.status == 'New' && lines.length != 0"
-        (click)="submit()"
+        (click)="approve()"
+        style="margin-right: 5px"
       >
-        Submit
+        Approve
       </button>
+      <button
+        class="btn btn-danger"
+        (click)="reject()"
+        style="margin-right: 5px"
+      >
+        Reject
+      </button>
+      <input
+        [(ngModel)]="purchaseRequest.reasonForRejection"
+        type="text"
+        size="50%"
+        placeholder="Reason for Rejection"
+      />
     </td>
   </tr>
 </table>

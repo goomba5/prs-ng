@@ -14,21 +14,42 @@ import { parseIntAutoRadix } from "@angular/common/src/i18n/format_number";
 })
 export class PurchaseRequestLineItemEditComponent implements OnInit {
   title = "Edit Line Item";
+
   lineItem: PurchaseRequestLineItem;
+  prliId: number;
+  jr: JsonResponse;
+  prId: number;
+  pr: PurchaseRequest;
 
   constructor(
     private prliService: PurchaseRequestLineItemService,
+    private prService: PurchaseRequestService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    // capture prliId using parms
+    // this.route.params.subscribe(parms => (this.prliId = parms["id"]));
+    // console.log("Prli id ", this.prliId);
+    // this.prliService.get(this.prliId).subscribe(resp => {
+    //   this.jr = resp;
+    //   this.lineItem = this.jr.data as PurchaseRequestLineItem;
+
     // get the prli so you can pass it to the delete method
     this.route.params.subscribe(resp => {
       this.prliService.get(resp.id).subscribe(jresp => {
         this.lineItem = jresp.data as PurchaseRequestLineItem;
       });
     });
+    // capture prId using parms
+    // this.route.params.subscribe(parms => (this.prId = parms["prId"]));
+    // console.log("Pr id ", this.prliId);
+    // console.log("Pr type is " + typeof this.prId);
+    // this.prService.get(this.prId).subscribe(resp => {
+    //   this.jr = resp;
+    //   this.pr = this.jr.data as PurchaseRequest;
+    // });
   }
 
   edit() {

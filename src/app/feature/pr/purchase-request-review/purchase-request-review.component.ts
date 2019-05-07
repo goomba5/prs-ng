@@ -29,7 +29,7 @@ export class PurchaseRequestReviewComponent implements OnInit {
     if (this.sysSvc.data.user.loggedIn) {
       this.isLoggedIn = this.sysSvc.data.user.instance;
     } else {
-      console.log("Must log in before reviewing purchase requests.");
+      console.log("Must log in before you can review purchase requests.");
     }
 
     this.purchaseRequestSvc

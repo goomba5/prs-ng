@@ -34,6 +34,7 @@ import { PurchaseRequestLinesComponent } from "./feature/pr/purchase-request-lin
 import { PurchaseRequestLineItemService } from "src/app/service/purchase-request-line-item.service";
 import { PurchaseRequestLineItemEditComponent } from './feature/prli/purchase-request-line-item-edit/purchase-request-line-item-edit.component';
 import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-request-line-item-create/purchase-request-line-item-create.component';
+import { PurchaseRequestApproveComponent } from './feature/pr/purchase-request-approve/purchase-request-approve.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { PurchaseRequestLineItemCreateComponent } from './feature/prli/purchase-
     PurchaseRequestReviewComponent,
     PurchaseRequestLinesComponent,
     PurchaseRequestLineItemEditComponent,
-    PurchaseRequestLineItemCreateComponent
+    PurchaseRequestLineItemCreateComponent,
+    PurchaseRequestApproveComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
